@@ -1,0 +1,13 @@
+[Unit]
+Description=Runs the app-name service
+After=syslog.target
+
+[Service]
+ExecStart=/opt/app-name/bin/uwsgi --pythonpath /opt/app-name/lib/python2.7/site-packages/ \
+        -w module:app --uwsgi-socket 127.0.0.1:7175 --uid app-name --gid app-name --gevent 100
+Restart=always
+StandardError=syslog
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

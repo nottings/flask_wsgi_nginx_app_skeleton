@@ -1,0 +1,2 @@
+recursive-include module/static *
+recursive-include module/templates *
